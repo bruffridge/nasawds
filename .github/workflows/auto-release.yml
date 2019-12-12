@@ -1,8 +1,8 @@
 name: auto-release
 
-on:
-  schedule:
-    - cron: '0 1 * * *' # every day at 1 am
+on: repository_dispatch
+  #schedule:
+  #  - cron: '0 1 * * *' # every day at 1 am
 
 jobs:
   update:
@@ -11,9 +11,8 @@ jobs:
 
     steps:
       - name: Latest release is a pre-release, older than two weeks, with no open issues/PRs.
-        # todo: replace with nasa/nasawds/releases in two spots below
         run: |
-          RELEASES=$(curl --silent "https://api.github.com/repos/bruffridge/nasawds-2.0/releases")
+          RELEASES=$(curl --silent "https://api.github.com/repos/nasa/nasawds/releases")
           IS_PRERELEASE=$(echo "$RELEASES" | jq -r '.[0].prerelease')
           if [ "$IS_PRERELEASE" == false ]
           then
@@ -32,7 +31,7 @@ jobs:
             exit 1
           fi
 
-          ISSUES=$(curl --silent "https://api.github.com/repos/bruffridge/nasawds-2.0/issues")
+          ISSUES=$(curl --silent "https://api.github.com/repos/nasa/nasawds/issues")
           OPEN_ISSUES=$(echo "$ISSUES" | jq '. | length')
 
           if [ "$OPEN_ISSUES" -gt 0 ]
