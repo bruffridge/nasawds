@@ -7,7 +7,8 @@ The same [USWDS](https://designsystem.digital.gov/) you know and love, with NASA
 * Minor tweaks to colors in `_uswds-theme-color.scss`
 * Headings use helvetica instead of source sans pro font in `_uswds-theme-typography.scss`
 * NASA meatball favicons in `theme/favicons`
-* Other minor visual tweaks and dark header option in `_uswds-theme-custom-styles.scss`
+* Dark header option and other minor visual tweaks in `_uswds-theme-custom-styles.scss`
+  * [See it live!](https://www1.grc.nasa.gov/facilities/sec/)
   * To use the dark header option, add the `.usa-header--dark` class to the `<header>` element.
   * For the close icon in the mobile slideout menu to appear white instead of dark gray replace `close.svg` with `close-white.svg` in this line of html `<button class="usa-nav__close"><img src="/assets/img/close.svg" alt="close"></button>`
 
