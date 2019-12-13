@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Latest release is a pre-release, older than two weeks, with no open issues/PRs.
         run: |
-          RELEASES=$(curl --silent "https://api.github.com/repos/nasa/nasawds/releases")
+          RELEASES=$(curl --silent "https://api.github.com/repos/bruffridge/nasawds/releases")
           IS_PRERELEASE=$(echo "$RELEASES" | jq -r '.[0].prerelease')
           if [ "$IS_PRERELEASE" == false ]
           then
@@ -31,7 +31,7 @@ jobs:
             exit 1
           fi
 
-          ISSUES=$(curl --silent "https://api.github.com/repos/nasa/nasawds/issues")
+          ISSUES=$(curl --silent "https://api.github.com/repos/bruffridge/nasawds/issues")
           OPEN_ISSUES=$(echo "$ISSUES" | jq '. | length')
 
           if [ "$OPEN_ISSUES" -gt 0 ]

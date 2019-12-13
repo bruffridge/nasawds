@@ -6,7 +6,7 @@
   "author": "bruffridge",
   "repository": {
     "type": "git",
-    "url": "git://github.com/nasa/nasawds.git"
+    "url": "git://github.com/bruffridge/nasawds.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
