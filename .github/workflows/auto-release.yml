@@ -1,8 +1,8 @@
 name: auto-release
 
-on: repository_dispatch
-  #schedule:
-  #  - cron: '0 1 * * *' # every day at 1 am
+on:
+  schedule:
+    - cron: '0 1 * * *' # every day at 1 am
 
 jobs:
   update:

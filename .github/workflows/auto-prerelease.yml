@@ -1,8 +1,8 @@
 name: auto-prerelease
 
-on: repository_dispatch
-  #schedule:
-  #  - cron: '0 0 */15 * *' # every 15 days at midnight
+on:
+  schedule:
+    - cron: '0 0 */15 * *' # every 15 days at midnight
   
 jobs:
   pre-release:
