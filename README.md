@@ -12,9 +12,15 @@ The same [USWDS](https://designsystem.digital.gov/) you know and love, with NASA
   * To use the dark header option, add the `.usa-header--dark` class to the `<header>` element.
   * For the close icon in the mobile slideout menu to appear white instead of dark gray replace `close.svg` with `close-white.svg` in this line of html `<button class="usa-nav__close"><img src="/assets/img/close.svg" alt="close"></button>`
 
-### Installation
+### How to Use
 
-NASAWDS provides the same installation options as [USWDS](https://designsystem.digital.gov/documentation/developers); and is available via [nasawds npm package](https://www.npmjs.com/package/nasawds), source sass and image files, or compiled css available in the .zip file attached to each [github release](https://github.com/bruffridge/nasawds/releases) under assets.
+Like USWDS, NASAWDS has two installation options: 
+
+* **Direct download** - Download the .zip file attached to the latest stable [release](https://github.com/bruffridge/nasawds/releases) under the assets section. Extract then add the files to your project's code base. For more details see [this section](https://designsystem.digital.gov/documentation/developers/#download) in the USWDS developer documentation.
+
+* **Install using npm** - NASAWDS is available as an [npm package](https://www.npmjs.com/package/nasawds). To install via npm, follow [these instructions](https://designsystem.digital.gov/documentation/developers/#install-using-npm), but where it says `uswds` replace with `nasawds`.
+
+For more detailed installation and usage instructions see the [USWDS developer documentation](https://designsystem.digital.gov/documentation/developers).
 
 ### Updates
 
