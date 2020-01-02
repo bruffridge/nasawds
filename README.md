@@ -14,7 +14,7 @@ The same [USWDS](https://designsystem.digital.gov/) you know and love, with NASA
 
 ### Installation
 
-NASAWDS provides the same installation options as [USWDS](https://designsystem.digital.gov/documentation/developers); and is available via [nasawds npm package](https://www.npmjs.com/package/nasawds), source sass files, or compiled css available in the .zip file attached to each github release.
+NASAWDS provides the same installation options as [USWDS](https://designsystem.digital.gov/documentation/developers); and is available via [nasawds npm package](https://www.npmjs.com/package/nasawds), source sass files, or compiled css available in the .zip file attached to each [github release](https://github.com/bruffridge/nasawds/releases) under assets.
 
 ### Updates
 
