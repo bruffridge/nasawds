@@ -15,7 +15,6 @@
     "release": "gulp release"
   },
   "devDependencies": {
-    // from uswds-gulp for gulpfile.js
     "autoprefixer": "^9.6.1",
     "gulp": "^4.0.2",
     "gulp-postcss": "^8.0.0",
@@ -28,7 +27,7 @@
     "sass": "^1.25.0",
     "uswds": "^2.5.1",
     "uswds-gulp": "github:uswds/uswds-gulp",
-    // from uswds used for running gulp release - release.js
+
     "ansi-colors": "^4.1.1",
     "cross-spawn": "^7.0.1",
     "del": "^5.1.0",
