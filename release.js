@@ -1,3 +1,5 @@
+/* from https://github.com/uswds/uswds/blob/develop/config/gulp/release.js */
+
 const del = require('del');
 const spawn = require('cross-spawn');
 const gulp = require('gulp');

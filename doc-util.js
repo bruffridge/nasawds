@@ -1,3 +1,5 @@
+// dependency of release.js. from https://github.com/uswds/uswds/blob/develop/config/gulp/doc-util.js
+
 const log = require('fancy-log');
 const colors = require('ansi-colors');
 const notifier = require('node-notifier');
