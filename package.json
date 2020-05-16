@@ -2,7 +2,7 @@
   "name": "nasawds",
   "description": "",
   "license": "CC0-1.0",
-  "version": "3.0.4",
+  "version": "3.0.5-beta.0",
   "author": "bruffridge",
   "repository": {
     "type": "git",
@@ -30,7 +30,7 @@
     "path": "^0.12.7",
     "postcss-csso": "^4.0.0",
     "sass": "^1.25.0",
-    "uswds": "^2.6.0",
+    "uswds": "^2.7.0",
     "uswds-gulp": "github:uswds/uswds-gulp"
   }
 }
