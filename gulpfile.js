@@ -14,7 +14,6 @@ from https://github.com/uswds/uswds-gulp/blob/master/gulpfile.js
 */
 
 const autoprefixer = require("autoprefixer");
-const autoprefixerOptions = require("./node_modules/uswds-gulp/config/browsers");
 const csso = require("postcss-csso");
 const gulp = require("gulp");
 const pkg = require("./node_modules/uswds/package.json");
@@ -54,7 +53,7 @@ const CSS_DEST = "./src/css";
 
 // Site CSS destination
 // Like the _site/assets/css directory in Jekyll, if necessary.
-// If using, uncomment line 113
+// If using, uncomment line 115
 //const SITE_CSS_DEST = "./path/to/site/css/destination";
 
 /*
@@ -89,9 +88,12 @@ gulp.task("copy-uswds-js", () => {
 gulp.task("build-sass", function(done) {
   var plugins = [
     // Autoprefix
-    autoprefixer(autoprefixerOptions),
+    autoprefixer({
+      cascade: false,
+      grid: true
+    }),
     // Minify
-    csso({ forceMediaMerge: false })
+    csso({ forceMediaMerge: false }),
   ];
   return (
     gulp
@@ -103,15 +105,15 @@ gulp.task("build-sass", function(done) {
             `${PROJECT_SASS_SRC}`,
             `${uswds}/scss`,
             `${uswds}/scss/packages`
-        ]
-      })
-    )
-    .pipe(replace(/\buswds @version\b/g, "based on uswds v" + pkg.version))
-    .pipe(postcss(plugins))
-    .pipe(sourcemaps.write("."))
-    // uncomment the next line if necessary for Jekyll to build properly
-    //.pipe(gulp.dest(`${SITE_CSS_DEST}`))
-    .pipe(gulp.dest(`${CSS_DEST}`))
+          ]
+        })
+      )
+      .pipe(replace(/\buswds @version\b/g, "based on uswds v" + pkg.version))
+      .pipe(postcss(plugins))
+      .pipe(sourcemaps.write("."))
+      // uncomment the next line if necessary for Jekyll to build properly
+      //.pipe(gulp.dest(`${SITE_CSS_DEST}`))
+      .pipe(gulp.dest(`${CSS_DEST}`))
   );
 });
 
