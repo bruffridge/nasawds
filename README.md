@@ -18,7 +18,7 @@ Like USWDS, NASAWDS has two installation options:
 
 * **Direct download** - Download the .zip file attached to the latest stable [release](https://github.com/bruffridge/nasawds/releases) under the assets section. Extract then add the files to your project's code base. For more details see [this section](https://designsystem.digital.gov/documentation/developers/#download) in the USWDS developer documentation.
 
-* **Install using npm** - NASAWDS is available as an [npm package](https://www.npmjs.com/package/nasawds). To install via npm, follow [these instructions](https://designsystem.digital.gov/documentation/developers/#install-using-npm), but where it says `uswds` replace with `nasawds`. Once installed, you will find the compiled asset files in the node_modules/nasawds/dist/ directory.
+* **Install using npm** - NASAWDS is available as an [npm package](https://www.npmjs.com/package/nasawds). To install via npm, follow [these instructions](https://designsystem.digital.gov/documentation/developers/#install-using-npm), but where it says `uswds` replace with `nasawds`. Once installed, you will find the compiled asset files in the `node_modules/nasawds/src/` directory.
 
 For more detailed installation and usage instructions see the [USWDS developer documentation](https://designsystem.digital.gov/documentation/developers).
 

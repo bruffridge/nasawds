@@ -1,2 +1,5 @@
 node_modules
-/dist
+/src/css
+/src/fonts
+/src/img
+/src/js
