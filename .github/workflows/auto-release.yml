@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Latest release is a pre-release, older than two weeks, with no open issues/PRs.
+      - name: Latest release is a pre-release, older than two weeks, with no open bugs.
         run: |
           RELEASES=$(curl --silent "https://api.github.com/repos/bruffridge/nasawds/releases")
           IS_PRERELEASE=$(echo "$RELEASES" | jq -r '.[0].prerelease')
@@ -31,12 +31,12 @@ jobs:
             exit 1
           fi
 
-          ISSUES=$(curl --silent "https://api.github.com/repos/bruffridge/nasawds/issues")
+          ISSUES=$(curl --silent "https://api.github.com/repos/bruffridge/nasawds/issues?labels=bug")
           OPEN_ISSUES=$(echo "$ISSUES" | jq '. | length')
 
           if [ "$OPEN_ISSUES" -gt 0 ]
           then
-            echo "There are open issues, stop."
+            echo "There are open bugs, stop."
             exit 1
           fi
 
