@@ -40,7 +40,7 @@ For more detailed installation and usage instructions see the [USWDS developer d
 </html>
 ```
 - Go to this USWDS page, find a page template you like, click the 'COMPONENT CODE' button, and copy the HTML code out of the window and into your index.html file between the `<body>` tags.
-- Note that the page templates are form an earlier version of USWDS so the relative links to the CSS, JS, and Img files need to be changed. If you used NPM to get the NASAWDS files, you'll want to do a replace all on the index.html file you currently have such that all `./assets/` are replaced with `./node_modules/nasawds/src/`. 
+- Note that the page templates are form an earlier version of USWDS so the relative links to the CSS, JS, and Img files need to be changed. If you used NPM to get the NASAWDS files, you'll want to do a replace all on the index.html file you currently have such that all `assets/` are replaced with `node_modules/nasawds/src/`. 
 - You should now have a nice looking index.html page to start editing from.
 
 ### Updates
