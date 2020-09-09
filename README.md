@@ -22,7 +22,7 @@ Like USWDS, NASAWDS has two installation options:
 
 For more detailed installation and usage instructions see the [USWDS developer documentation](https://designsystem.digital.gov/documentation/developers).
 
-#### There Is More than One Way Forward from the Point Above, An Example Way Forward to Get a Working Webpage Is:
+#### Creating a webpage using NASAWDS
 - Create an index.html file at the top of your repository
 - Paste into that file 
 ```<!DOCTYPE html>
