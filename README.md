@@ -22,6 +22,27 @@ Like USWDS, NASAWDS has two installation options:
 
 For more detailed installation and usage instructions see the [USWDS developer documentation](https://designsystem.digital.gov/documentation/developers).
 
+#### Creating a webpage using NASAWDS
+- Create an index.html file at the top of your repository
+- Paste into that file 
+```<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>My Example Project</title>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
+ <bod>
+  <script src="assets/js/uswds.min.js"></script>
+
+</body>
+</html>
+```
+- Go to <a href="https://designsystem.digital.gov/page-templates/">this USWDS page of page templates</a>, find a page template you like, click the 'COMPONENT CODE' button, and copy the HTML code out of the window and into your index.html file between the `<body>` tags.
+- Note that the page templates are form an earlier version of USWDS so the relative links to the CSS, JS, and Img files need to be changed. If you used NPM to get the NASAWDS files, you'll want to do a replace all on the index.html file you currently have such that all `assets/` are replaced with `node_modules/nasawds/src/`. 
+- You should now have a nice looking index.html page to start editing from.
+
 ### Updates
 
 NASAWDS now updates to the latest version of USWDS automagically. (thanks [GitHub Actions](https://github.com/features/actions)!)
