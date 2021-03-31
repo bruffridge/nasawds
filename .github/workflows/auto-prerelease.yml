@@ -1,6 +1,7 @@
 name: auto-prerelease
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0 0 */15 * *' # every 15 days at midnight
   
@@ -30,7 +31,8 @@ jobs:
       - run: npm update uswds
       - name: update npm package versioning
         #https://help.github.com/en/actions/automating-your-workflow-with-github-actions/development-tools-for-github-actions#set-an-environment-variable-set-env
-        run: echo "::set-env name=RELEASE_VERSION::$(npm --no-git-tag-version version prerelease --preid=beta)"  # updates package.json version number from 3.0.0 to 3.0.1-beta.0
+        run: echo "RELEASE_VERSION=$(npm --no-git-tag-version version prerelease --preid=beta)" >> $GITHUB_ENV
+        #run: echo "::set-env name=RELEASE_VERSION::$(npm --no-git-tag-version version prerelease --preid=beta)"  # updates package.json version number from 3.0.0 to 3.0.1-beta.0
   #https://github.com/ad-m/github-push-action
       - uses: stefanzweifel/git-auto-commit-action@v2.3.0
         with:
@@ -54,9 +56,11 @@ jobs:
           prerelease: true
 
       - run: npm run release
-      - run: echo "::set-env name=RELEASE_ASSET_PATH::$(find . -name "nasawds-*.zip")"
+      - run: echo "RELEASE_ASSET_PATH=$(find . -name "nasawds-*.zip")" >> $GITHUB_ENV
+      #- run: echo "::set-env name=RELEASE_ASSET_PATH::$(find . -name "nasawds-*.zip")"
       # https://askubuntu.com/a/682130
-      - run: echo "::set-env name=RELEASE_ASSET_NAME::$(echo ${RELEASE_ASSET_PATH:2})"
+      - run: echo "RELEASE_ASSET_NAME=$(echo ${RELEASE_ASSET_PATH:2})" >> $GITHUB_ENV
+      #- run: echo "::set-env name=RELEASE_ASSET_NAME::$(echo ${RELEASE_ASSET_PATH:2})"
 
       #https://github.com/actions/upload-release-asset
       - name: Upload Release Asset
