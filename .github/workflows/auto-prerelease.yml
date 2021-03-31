@@ -1,6 +1,7 @@
 name: auto-prerelease
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0 0 */15 * *' # every 15 days at midnight
   
