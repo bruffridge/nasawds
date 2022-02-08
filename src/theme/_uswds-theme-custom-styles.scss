@@ -89,11 +89,11 @@ h1,h2,h3,h4,h5,h6,.usa-logo__text {
     .usa-nav__primary button[aria-expanded=false] {
         @include add-background-svg('plus-white');
         @include at-media($theme-header-min-width) {
-            @include add-background-svg('angle-arrow-down-white');
+            @include add-background-svg('usa-icons-bg/expand_more--white');
         }
         &:hover {
             @include at-media($theme-header-min-width) {
-                @include add-background-svg('angle-arrow-down-white');
+                @include add-background-svg('usa-icons-bg/expand_more--white');
             }
         }
     }        
@@ -101,7 +101,7 @@ h1,h2,h3,h4,h5,h6,.usa-logo__text {
     .usa-nav__primary button[aria-expanded=true] {
         @include add-background-svg('minus-white');
         @include at-media($theme-header-min-width) {
-            @include add-background-svg('angle-arrow-up-primary');
+            @include add-background-svg('usa-icons/expand_less');
             background-color: color('base-lighter');
             color: color('ink');
         }   
