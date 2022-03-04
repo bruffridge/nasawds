@@ -51,7 +51,6 @@ jobs:
             Changes in this Release
             - uswds package updated to latest version
           token: ${{ secrets.GITHUB_TOKEN }}
-
       #https://github.com/actions/starter-workflows/blob/master/ci/npm-publish.yml
       # remove .zip file
       - run: rm -rf ${{ env.RELEASE_ASSET_PATH }}
