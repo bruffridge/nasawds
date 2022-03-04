@@ -3,3 +3,4 @@ node_modules
 /src/fonts
 /src/img
 /src/js
+/package-lock.json
