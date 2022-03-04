@@ -1,4 +1,4 @@
-name: auto-prerelease
+name: auto-prerelease-notuswds
 
 on:
   workflow_dispatch:
