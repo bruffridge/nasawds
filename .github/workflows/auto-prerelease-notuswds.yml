@@ -1,0 +1,51 @@
+name: auto-prerelease
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  pre-release:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      #checkout develop branch
+      - uses: actions/checkout@v1
+        with:
+          ref: develop
+      # https://github.com/actions/setup-node
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+          registry-url: https://registry.npmjs.org/
+
+      - run: npm install
+      - name: update npm package versioning
+        #https://help.github.com/en/actions/automating-your-workflow-with-github-actions/development-tools-for-github-actions#set-an-environment-variable-set-env
+        run: echo "RELEASE_VERSION=$(npm --no-git-tag-version version prerelease --preid=beta)" >> $GITHUB_ENV
+        #run: echo "::set-env name=RELEASE_VERSION::$(npm --no-git-tag-version version prerelease --preid=beta)"  # updates package.json version number from 3.0.0 to 3.0.1-beta.0
+  #https://github.com/ad-m/github-push-action
+      - uses: stefanzweifel/git-auto-commit-action@v2.3.0
+        with:
+          commit_message: bump to beta
+          branch: develop
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: npm run release
+      - run: echo "RELEASE_ASSET_PATH=$(find . -name "nasawds-*.zip")" >> $GITHUB_ENV
+      - uses: ncipollo/release-action@v1
+        with:
+          artifacts: ${{ env.RELEASE_ASSET_PATH }}
+          tag: ${{ env.RELEASE_VERSION }}
+          prerelease: true
+          body: |
+            Changes in this Release
+            - 
+          token: ${{ secrets.GITHUB_TOKEN }}
+      #https://github.com/actions/starter-workflows/blob/master/ci/npm-publish.yml
+      # remove .zip file
+      - run: rm -rf ${{ env.RELEASE_ASSET_PATH }}
+      - run: npm publish --tag beta
+        env:
+          # https://stackoverflow.com/questions/57685065/how-to-set-secrets-in-github-actions
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
