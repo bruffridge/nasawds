@@ -86,25 +86,23 @@ h1,h2,h3,h4,h5,h6,.usa-logo__text {
         border-top: none;
     }
 
-    .usa-nav__primary button[aria-expanded=false] {
-        @include add-background-svg('plus-white');
-        @include at-media($theme-header-min-width) {
-            @include add-background-svg('usa-icons-bg/expand_more--white');
-        }
-        &:hover {
-            @include at-media($theme-header-min-width) {
-                @include add-background-svg('usa-icons-bg/expand_more--white');
-            }
-        }
+    .usa-nav__primary button[aria-expanded=false] span::after {
+        background-color: color('white');
     }        
 
     .usa-nav__primary button[aria-expanded=true] {
-        @include add-background-svg('minus-white');
+        & span::after {
+            background-color: color('white');
+        }
+
         @include at-media($theme-header-min-width) {
-            @include add-background-svg('usa-icons/expand_less');
             background-color: color('base-lighter');
             color: color('ink');
-        }   
+
+            & span::after {
+                background-color: color('ink');
+            }
+        }
     }
 
     .usa-nav__primary>.usa-nav__primary-item>a:hover {
