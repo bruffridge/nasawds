@@ -10,7 +10,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "init": "gulp init",
+    "prepare": "gulp init",
     "watch": "gulp watch",
     "release": "gulp release"
   },
