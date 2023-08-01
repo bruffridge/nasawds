@@ -48,7 +48,3 @@ For more detailed installation and usage instructions see the [USWDS developer d
 NASAWDS now updates to the latest version of USWDS automagically. (thanks [GitHub Actions](https://github.com/features/actions)!)
 
 NASAWDS uses a GitHub Action workflow to check for an updated version of USWDS every 15 days and updates itself automatically with the latest version on the develop branch, and releases a beta pre-release on GitHub and NPM. A two week window is provided for testing. Any issues found should be opened in this repository. After two weeks, if no unresolved issues are present in this GitHub repository, a GitHub Action workflow creates a new stable release on GitHub and NPM and merges develop into master.
-
-### v3 Changes
-
-NASAWDS starting with version 3 is now using the theming options availble in version 2 of USWDS. Older versions of NASAWDS are still available at their new archived home [nasawds-old](https://github.com/nasa/nasawds-old). This will greatly simplify the maintenance of NASAWDS going forward. The repository is no longer a fork of USWDS, it only contains the theme files necessary to apply NASA-specific changes to USWDS, the build scripts that build NASAWDS by combining the NASAWDS theme files with USWDS, and the GitHub Action workflows that automatically update NASAWDS to the latest non-major version of USWDS.
