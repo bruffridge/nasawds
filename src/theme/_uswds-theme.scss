@@ -1,0 +1,22 @@
+@forward "uswds-core" with (
+    /* COLOR SETTINGS */
+    $theme-color-primary:               'blue-warm-60v',
+    $theme-color-secondary-lighter:     'red-cool-10', //red-10 matches nasawds better
+    $theme-color-secondary:             'red-50v',
+    $theme-color-secondary-vivid:       'red-50v',
+    $theme-color-accent-cool:           'blue-cool-20v',
+    $theme-color-accent-cool-dark:      'cyan-30v',
+    $theme-color-accent-cool-darker:    'blue-cool-40v',
+    $theme-color-accent-cool-darkest:   'blue-cool-60v',
+    $theme-color-warning-lighter:       'gold-5v',
+    $theme-color-warning-light:         'gold-20v',
+
+    /* TYPOGRAPHY SETTINGS */
+    $theme-font-type-lang:              'helvetica',
+    $theme-font-role-heading:           'lang',
+    $theme-h3-font-size:                10,
+    $theme-h4-font-size:                8,
+    $theme-h5-font-size:                'sm',
+    $theme-h6-font-size:                'xs',
+    $theme-lead-font-family:            'body',
+);

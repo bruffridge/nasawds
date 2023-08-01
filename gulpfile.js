@@ -10,129 +10,44 @@
 USWDS SASS GULPFILE
 ----------------------------------------
 
-from https://github.com/uswds/uswds-gulp/blob/master/gulpfile.js
+from https://designsystem.digital.gov/documentation/getting-started/developers/phase-two-compile/
 */
 
-const autoprefixer = require("autoprefixer");
-const csso = require("postcss-csso");
+/**
+* Import uswds-compile
+*/
+const uswds = require("@uswds/compile");
 const gulp = require("gulp");
-const pkg = require("./node_modules/uswds/package.json");
-const postcss = require("gulp-postcss");
-const replace = require("gulp-replace");
-const sass = require("gulp-sass");
-const sourcemaps = require("gulp-sourcemaps");
-const uswds = require("./node_modules/uswds-gulp/config/uswds");
 
-sass.compiler = require("sass");
-
-/*
-----------------------------------------
-PATHS
-----------------------------------------
-- All paths are relative to the
-  project root
-- Don't use a trailing `/` for path
-  names
-----------------------------------------
+/**
+* USWDS version
+* Set the major version of USWDS you're using
+* (Current options are the numbers 2 or 3)
 */
+uswds.settings.version = 3;
 
-// Project Sass source directory
-const PROJECT_SASS_SRC = "./src/theme";
-
-// Images destination
-const IMG_DEST = "./src/img";
-
-// Fonts destination
-const FONTS_DEST = "./src/fonts";
-
-// Javascript destination
-const JS_DEST = "./src/js";
-
-// Compiled CSS destination
-const CSS_DEST = "./src/css";
-
-// Site CSS destination
-// Like the _site/assets/css directory in Jekyll, if necessary.
-// If using, uncomment line 115
-//const SITE_CSS_DEST = "./path/to/site/css/destination";
-
-/*
-----------------------------------------
-TASKS
-----------------------------------------
+/**
+* Path settings
+* Set as many as you need
 */
+uswds.paths.src.projectSass = './src/theme';
+uswds.paths.dist.theme = './src/theme';
+uswds.paths.dist.img = './src/img';
+uswds.paths.dist.fonts = './src/fonts';
+uswds.paths.dist.js = './src/js';
+uswds.paths.dist.css = './src/css';
 
-gulp.task("copy-uswds-setup", () => {
-  return gulp
-    .src(`${uswds}/scss/theme/**/**`)
-    .pipe(gulp.dest(`${PROJECT_SASS_SRC}`));
-});
-
-gulp.task("copy-uswds-fonts", () => {
-  return gulp.src(`${uswds}/fonts/**/**`).pipe(gulp.dest(`${FONTS_DEST}`));
-});
-
-gulp.task("copy-uswds-images", () => {
-  return gulp.src(`${uswds}/img/**/**`).pipe(gulp.dest(`${IMG_DEST}`));
-});
-
+/**
+* Gulp tasks
+*/
 gulp.task("copy-nasa-images", () => {
-  return gulp.src(`./src/theme/img/**/**`)
-  .pipe(gulp.dest(`${IMG_DEST}`));
+  return gulp.src(`${uswds.paths.dist.theme}/img/**`)
+  .pipe(gulp.dest(uswds.paths.dist.img));
 });
+gulp.task('copy', gulp.series(uswds.copyAssets, 'copy-nasa-images'));
+gulp.task('init', gulp.series('copy', uswds.compile));
+gulp.task('watch', uswds.watch);
 
-gulp.task("copy-uswds-js", () => {
-  return gulp.src(`${uswds}/js/**/**`).pipe(gulp.dest(`${JS_DEST}`));
-});
-
-gulp.task("build-sass", function(done) {
-  var plugins = [
-    // Autoprefix
-    autoprefixer({
-      cascade: false,
-      grid: true
-    }),
-    // Minify
-    csso({ forceMediaMerge: false }),
-  ];
-  return (
-    gulp
-      .src([`${PROJECT_SASS_SRC}/*.scss`])
-      .pipe(sourcemaps.init({ largeFile: true }))
-      .pipe(
-        sass.sync({
-          includePaths: [
-            `${PROJECT_SASS_SRC}`,
-            `${uswds}/scss`,
-            `${uswds}/scss/packages`
-          ]
-        })
-      )
-      .pipe(replace(/\buswds @version\b/g, "based on uswds v" + pkg.version))
-      .pipe(postcss(plugins))
-      .pipe(sourcemaps.write("."))
-      // uncomment the next line if necessary for Jekyll to build properly
-      //.pipe(gulp.dest(`${SITE_CSS_DEST}`))
-      .pipe(gulp.dest(`${CSS_DEST}`))
-  );
-});
-
-gulp.task(
-  "init",
-  gulp.series(
-    "copy-uswds-fonts",
-    "copy-uswds-images",
-    "copy-nasa-images",
-    "copy-uswds-js",
-    "build-sass"
-  )
-);
-
-gulp.task("watch-sass", function() {
-  gulp.watch(`${PROJECT_SASS_SRC}/**/*.scss`, gulp.series("build-sass"));
-});
-
-gulp.task("watch", gulp.series("build-sass", "watch-sass"));
 
 gulp.task("default", gulp.series("watch"));
 
