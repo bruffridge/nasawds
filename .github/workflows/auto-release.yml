@@ -51,7 +51,7 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - name: update npm package versioning
         run: npm --no-git-tag-version version patch # updates package.json version number from 3.0.1-beta.0 to 3.0.1
-      - uses: stefanzweifel/git-auto-commit-action@v2.3.0
+      - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Bump npm version from beta prerelease to stable status
           branch: develop
