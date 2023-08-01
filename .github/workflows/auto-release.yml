@@ -42,12 +42,12 @@ jobs:
           fi
 
           exit 0
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
         with:
           ref: develop
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v3
         with:
-          node-version: '12.x'
+          node-version: '16.x'
           registry-url: https://registry.npmjs.org/
       - name: update npm package versioning
         run: npm --no-git-tag-version version patch # updates package.json version number from 3.0.1-beta.0 to 3.0.1
@@ -61,15 +61,15 @@ jobs:
     needs: update
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v3
       with:
         ref: master
-    - uses: actions/setup-node@v1
+    - uses: actions/setup-node@v3
       with:
-        node-version: '12.x'
+        node-version: '16.x'
         registry-url: https://registry.npmjs.org/
     - name: Merge develop into master
-      uses: robotology/gh-action-nightly-merge@v1.2.0
+      uses: robotology/gh-action-nightly-merge@v1.3.3
       with:
         stable_branch: 'develop'
         development_branch: 'master'
