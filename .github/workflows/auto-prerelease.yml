@@ -14,13 +14,13 @@ jobs:
       # see if uswds version has changed since last nasawds release. if not, do nothing.
 
       #checkout develop branch
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
         with:
           ref: develop
       # https://github.com/actions/setup-node
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v3
         with:
-          node-version: '12.x'
+          node-version: '16.x'
           registry-url: https://registry.npmjs.org/
 
       - run: npm install
@@ -34,7 +34,7 @@ jobs:
         run: echo "RELEASE_VERSION=$(npm --no-git-tag-version version prerelease --preid=beta)" >> $GITHUB_ENV
         #run: echo "::set-env name=RELEASE_VERSION::$(npm --no-git-tag-version version prerelease --preid=beta)"  # updates package.json version number from 3.0.0 to 3.0.1-beta.0
   #https://github.com/ad-m/github-push-action
-      - uses: stefanzweifel/git-auto-commit-action@v2.3.0
+      - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Updated uswds package to latest version
           branch: develop
