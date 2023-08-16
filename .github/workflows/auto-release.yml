@@ -89,8 +89,7 @@ jobs:
         artifacts: ${{ env.RELEASE_ASSET_PATH }}
         tag: v${{ env.RELEASE_VERSION }}
         body: |
-          Changes in this Release
-          - uswds package updated to latest version
+          No changes since last beta pre-release.
         token: ${{ secrets.GITHUB_TOKEN }}
     #https://github.com/actions/starter-workflows/blob/master/ci/npm-publish.yml
     # remove .zip file
