@@ -51,10 +51,6 @@ h1, h2, .usa-display, .usa-logo__text {
     letter-spacing: letter-spacing(-2);
 }
 
-h1,h2,h3,h4,h5,h6,.usa-logo__text {
-    @include add-knockout-font-smoothing;
-}
-
 .usa-intro {
     font-weight: font-weight('light');
 }
