@@ -76,8 +76,16 @@ h1, h2, .usa-display, .usa-logo__text {
         //}
     }
 
-    .usa-logo a, .usa-nav__primary button, .usa-nav__primary>.usa-nav__primary-item>a {
+    .usa-logo a, .usa-nav__primary button, .usa-nav__primary>.usa-nav__primary-item>a, .usa-nav__primary>.usa-nav__primary-item>a:not(.usa-current) {
         color: color('white');
+    }
+
+    .usa-nav__primary>.usa-nav__primary-item>.usa-nav__submenu>.usa-nav__submenu-item>a {
+        color: color('white');
+
+        @include at-media($theme-header-min-width) {
+            color: color('ink');
+        }
     }
 
     &.usa-header--extended .usa-nav {
@@ -166,21 +174,21 @@ h1, h2, .usa-display, .usa-logo__text {
     }
 }
 
-.usa-header--extended.usa-header--dark {
+.usa-header--extended.usa-header--dark .usa-nav__primary-item {
     @include at-media($theme-header-min-width) {
-        .usa-current,
-        [aria-expanded=true],
-        .usa-nav__link:hover {
+        & > .usa-current,
+        & > [aria-expanded=true],
+        & > .usa-nav__link:hover {
             @include nav-border-extended-dark;
         }
     }
 }
 
-.usa-header--basic.usa-header--dark {
+.usa-header--basic.usa-header--dark .usa-nav__primary-item {
     @include at-media($theme-header-min-width) {
-        .usa-current,
-        [aria-expanded=true],
-        .usa-nav__link:hover {
+        & > .usa-current,
+        & > [aria-expanded=true],
+        & > .usa-nav__link:hover {
             @include nav-border-basic-dark;
         }
     }
