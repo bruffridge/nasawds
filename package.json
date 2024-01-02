@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@uswds/compile": "^1.0.0",
-    "@uswds/uswds": "3.1.0",
+    "@uswds/uswds": "^3.1.0",
     "ansi-colors": "^4.1.1",
     "cross-spawn": "^7.0.3",
     "del": "^5.1.0",
